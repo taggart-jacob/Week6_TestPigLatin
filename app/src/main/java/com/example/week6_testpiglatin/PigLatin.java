@@ -1,15 +1,22 @@
 package com.example.week6_testpiglatin;
 
+import java.util.ArrayList;
+
 public class PigLatin {
 
 
         public static void main(String[] args) {
-            String engl = "chicken";
-            pigLatinTranslate(engl);
+            String engl = "chicken soup";
+            String[] strEngl = engl.split("\\s");
+            for (int i = 0; i < strEngl.length; i++){
+                strEngl[i] = pigLatinTranslate(strEngl[i]);
+                System.out.print(strEngl[i]+ " ");
+            }
+
         }
 
 
-        public static void pigLatinTranslate(String english){
+        public static String pigLatinTranslate(String english){
 
             String firstSub ;
             String secondSub;
@@ -27,6 +34,6 @@ public class PigLatin {
 
             firstSub = english.substring(0, endpoint);
             secondSub = english.substring(endpoint, english.length());
-            System.out.print(secondSub + firstSub + "ay");
+            return secondSub + firstSub + "ay";
         }
 }
